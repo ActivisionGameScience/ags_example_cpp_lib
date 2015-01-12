@@ -15,11 +15,11 @@ namespace activision_game_science {
         ~BloscWrapper();
 
 
-        std::vector<unsigned char>
-        compress(std::vector<unsigned char> src, int clevel=5, bool doshuffle=false, std::size_t typesize=4);
+        std::vector<unsigned char>*
+        compress(unsigned char* src, std::size_t nbytes, int clevel=5, bool doshuffle=false, std::size_t typesize=4);
 
-        std::vector<unsigned char>
-        decompress(std::vector<unsigned char> src);
+        std::vector<unsigned char>*
+        decompress(unsigned char* src);
 
     private:
 
