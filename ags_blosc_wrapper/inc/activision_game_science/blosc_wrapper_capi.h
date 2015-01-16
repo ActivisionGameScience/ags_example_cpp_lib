@@ -58,7 +58,7 @@ ags_BloscWrapper_compress(ags_BloscWrapper instance, void* src, size_t srcsize, 
 
 EXPORT_THIS_SYMBOL
 size_t
-ags_BloscWrapper_decompress(ags_BloscWrapper instance, unsigned char* src);
+ags_BloscWrapper_decompress(ags_BloscWrapper instance, void* src, void* dst, size_t dstsize);
 
 
 
