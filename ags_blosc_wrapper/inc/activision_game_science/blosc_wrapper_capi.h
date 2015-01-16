@@ -21,7 +21,6 @@ extern "C" {
 
 // opaque pointers to underlying types
 typedef  void*  ags_BloscWrapper;
-typedef  void*  ags_BloscBuffer; 
 
 
 
@@ -40,40 +39,26 @@ ags_BloscWrapper_delete(ags_BloscWrapper instance);
 
 
 EXPORT_THIS_SYMBOL
-ags_BloscBuffer 
-ags_BloscWrapper_compress(ags_BloscWrapper instance, unsigned char* src, size_t nbytes);
+size_t
+ags_BloscWrapper_reserve_needed_to_compress(ags_BloscWrapper instance, size_t srcsize);
 
 
 
 EXPORT_THIS_SYMBOL
-ags_BloscBuffer 
+size_t
+ags_BloscWrapper_reserve_needed_to_decompress(ags_BloscWrapper instance, void* src);
+
+
+
+EXPORT_THIS_SYMBOL
+size_t
+ags_BloscWrapper_compress(ags_BloscWrapper instance, void* src, size_t srcsize, void* dst, size_t dstsize);
+
+
+
+EXPORT_THIS_SYMBOL
+size_t
 ags_BloscWrapper_decompress(ags_BloscWrapper instance, unsigned char* src);
-
-
-
-// buffer methods
-
-EXPORT_THIS_SYMBOL
-ags_BloscBuffer 
-ags_BloscBuffer_new(size_t size);
-
-
-
-EXPORT_THIS_SYMBOL
-void 
-ags_BloscBuffer_delete(ags_BloscBuffer instance);
-
-
-
-EXPORT_THIS_SYMBOL
-size_t 
-ags_BloscBuffer_size(ags_BloscBuffer instance);
-
-
-
-EXPORT_THIS_SYMBOL
-unsigned char* 
-ags_BloscBuffer_getRaw(ags_BloscBuffer instance);
 
 
 

@@ -26,62 +26,40 @@ ags_BloscWrapper_delete(ags_BloscWrapper instance) {
 
 
 
-ags_BloscBuffer 
-ags_BloscWrapper_compress(ags_BloscWrapper instance, unsigned char* src, size_t nbytes) {
+size_t
+ags_BloscWrapper_reserve_needed_to_compress(ags_BloscWrapper instance, size_t srcsize) {
 
     BloscWrapper* inst = static_cast<BloscWrapper*>(instance);
 
-    vector<unsigned char>* dst = inst->compress(src, nbytes);
-    return static_cast<ags_BloscBuffer>(dst);
+    return inst->reserve_needed_to_compress(srcsize);
 }
 
 
 
-ags_BloscBuffer 
-ags_BloscWrapper_decompress(ags_BloscWrapper instance, unsigned char* src) {
+size_t
+ags_BloscWrapper_reserve_needed_to_decompress(ags_BloscWrapper instance, void* src) {
 
     BloscWrapper* inst = static_cast<BloscWrapper*>(instance);
 
-    vector<unsigned char>* dst = inst->decompress(src);
-    return static_cast<ags_BloscBuffer>(dst);
+    return inst->reserve_needed_to_decompress(src);
+}   
+
+
+
+size_t
+ags_BloscWrapper_compress(ags_BloscWrapper instance, void* src, size_t srcsize, void* dst, size_t dstsize) {
+
+    BloscWrapper* inst = static_cast<BloscWrapper*>(instance);
+
+    return inst->compress(src, srcsize, dst, dstsize);
 }
 
 
 
-// buffer methods
+size_t
+ags_BloscWrapper_decompress(ags_BloscWrapper instance, void* src, void* dst, size_t dstsize) {
 
-ags_BloscBuffer 
-ags_BloscBuffer_new(size_t size) {
+    BloscWrapper* inst = static_cast<BloscWrapper*>(instance);
 
-    return static_cast<ags_BloscBuffer>(new vector<unsigned char>(size));
+    return inst->decompress(src, dst, dstsize);
 }
-
-
-
-void 
-ags_BloscBuffer_delete(ags_BloscBuffer instance) {
-
-    if (instance != NULL)
-        delete static_cast<vector<unsigned char>*>(instance);
-}
-
-
-
-size_t 
-ags_BloscBuffer_size(ags_BloscBuffer instance) {
-
-    vector<unsigned char>* inst = static_cast<vector<unsigned char>*>(instance);
-
-    return inst->size();
-}
-
-
-
-unsigned char* 
-ags_BloscBuffer_getRaw(ags_BloscBuffer instance) {
-
-    vector<unsigned char>* inst = static_cast<vector<unsigned char>*>(instance);
-
-    return &(*inst)[0];
-}
-
