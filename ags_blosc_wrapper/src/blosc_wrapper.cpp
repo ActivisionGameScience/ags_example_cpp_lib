@@ -3,6 +3,7 @@
 
 
 using namespace std;
+using namespace activision_game_science;
 
 
 namespace activision_game_science {
@@ -23,15 +24,15 @@ namespace activision_game_science {
 
 
 
-    std::size_t
-    BloscWrapper::reserve_needed_to_compress(std::size_t srcsize) {
+    size_t
+    BloscWrapper::reserve_needed_to_compress(size_t srcsize) {
 
         return srcsize + BLOSC_MAX_OVERHEAD;
     }
 
 
 
-    std::size_t
+    size_t
     BloscWrapper::reserve_needed_to_decompress(void* src) {
 
         size_t nbytes;
@@ -45,16 +46,15 @@ namespace activision_game_science {
     }
 
 
-
     // compress a buffer
-    std::size_t
+    size_t
     BloscWrapper::compress(void* src, 
-                           std::size_t srcsize, 
+                           size_t srcsize, 
                            void* dst, 
-                           std::size_t dstsize, 
-                           int clevel=5, 
-                           bool doshuffle=false, 
-                           std::size_t typesize=4);
+                           size_t dstsize, 
+                           int clevel, 
+                           bool doshuffle, 
+                           size_t typesize) {
 
         // convert doshuffle to int
         int doshuffle_int = 0;
@@ -70,8 +70,8 @@ namespace activision_game_science {
 
 
     // decompress a buffer
-    std::size_t
-    BloscWrapper::decompress(void* src, void* dst, std::size_t dstsize);
+    size_t
+    BloscWrapper::decompress(void* src, void* dst, size_t dstsize) {
 
         return blosc_decompress(src, dst, dstsize);
     }
