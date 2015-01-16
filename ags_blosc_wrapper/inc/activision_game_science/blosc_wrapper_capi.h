@@ -40,13 +40,13 @@ ags_BloscWrapper_delete(ags_BloscWrapper instance);
 
 EXPORT_THIS_SYMBOL
 size_t
-ags_BloscWrapper_reserve_needed_to_compress(ags_BloscWrapper instance, size_t srcsize);
+ags_BloscWrapper_reserveNeededToCompress(ags_BloscWrapper instance, size_t srcsize);
 
 
 
 EXPORT_THIS_SYMBOL
 size_t
-ags_BloscWrapper_reserve_needed_to_decompress(ags_BloscWrapper instance, void* src);
+ags_BloscWrapper_reserveNeededToDecompress(ags_BloscWrapper instance, void* src);
 
 
 

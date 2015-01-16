@@ -27,21 +27,21 @@ ags_BloscWrapper_delete(ags_BloscWrapper instance) {
 
 
 size_t
-ags_BloscWrapper_reserve_needed_to_compress(ags_BloscWrapper instance, size_t srcsize) {
+ags_BloscWrapper_reserveNeededToCompress(ags_BloscWrapper instance, size_t srcsize) {
 
     BloscWrapper* inst = static_cast<BloscWrapper*>(instance);
 
-    return inst->reserve_needed_to_compress(srcsize);
+    return inst->reserveNeededToCompress(srcsize);
 }
 
 
 
 size_t
-ags_BloscWrapper_reserve_needed_to_decompress(ags_BloscWrapper instance, void* src) {
+ags_BloscWrapper_reserveNeededToDecompress(ags_BloscWrapper instance, void* src) {
 
     BloscWrapper* inst = static_cast<BloscWrapper*>(instance);
 
-    return inst->reserve_needed_to_decompress(src);
+    return inst->reserveNeededToDecompress(src);
 }   
 
 

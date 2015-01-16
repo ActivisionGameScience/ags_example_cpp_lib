@@ -20,7 +20,7 @@ namespace activision_game_science {
 
 
 
-    size_t BloscWrapper::reserve_needed_to_compress(size_t srcsize) {
+    size_t BloscWrapper::reserveNeededToCompress(size_t srcsize) {
 
         return srcsize + BLOSC_MAX_OVERHEAD;
     }
@@ -28,7 +28,7 @@ namespace activision_game_science {
 
 
     size_t
-    BloscWrapper::reserve_needed_to_decompress(void* src) {
+    BloscWrapper::reserveNeededToDecompress(void* src) {
 
         size_t nbytes;
         size_t cbytes;

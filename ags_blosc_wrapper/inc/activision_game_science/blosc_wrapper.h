@@ -14,10 +14,10 @@ namespace activision_game_science {
         BloscWrapper();
         ~BloscWrapper();
 
-        size_t reserve_needed_to_compress(size_t srcsize);
+        size_t reserveNeededToCompress(size_t srcsize);
 
         size_t
-        reserve_needed_to_decompress(void* src);
+        reserveNeededToDecompress(void* src);
 
         size_t
         compress(void* src, 
