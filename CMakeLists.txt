@@ -45,13 +45,13 @@ set (DLLS_to_install  ${DLLS_to_install}  ${CBLOSC_DLLS})
 
 #####################
 #
-#  ags_example_cpp_lib_static target
+#  ags_blosc_wrapper_static target
 #  A STATIC LIBRARY target
 #
 #####################
 
 # add includes for current target
-set (WORKING_SOURCE_DIR ${CMAKE_SOURCE_DIR}/ags_example_cpp_lib)
+set (WORKING_SOURCE_DIR ${CMAKE_SOURCE_DIR}/ags_blosc_wrapper)
 include_directories(${WORKING_SOURCE_DIR}/inc)
 
 # add .cpp, .c files, .hpp, .h files
@@ -63,11 +63,12 @@ set (WORKING_SOURCES  ${WORKING_HPP_SOURCES}  ${WORKING_H_SOURCES}  ${WORKING_CP
 set_source_files_properties(${WORKING_C_SOURCES} PROPERTIES LANGUAGE CXX)
 
 # create the target (note: *_LIBRARIES and *_LIBRARY variables come from import process above)
-add_library (ags_example_cpp_lib_static  ${WORKING_SOURCES})  # it is also possible to specify the option SHARED here
-target_link_libraries (ags_example_cpp_lib_static  ${CBLOSC_STATIC_LIBRARIES})
+add_library (ags_blosc_wrapper_static  ${WORKING_SOURCES})  # it is also possible to specify the option SHARED here
+target_link_libraries (ags_blosc_wrapper_static  ${CBLOSC_STATIC_LIBRARIES})
+set_target_properties (ags_blosc_wrapper_static  PROPERTIES  LINKER_LANGUAGE  CXX)
 
 # install the library
-install (TARGETS ags_example_cpp_lib_static
+install (TARGETS ags_blosc_wrapper_static
          DESTINATION lib)
 
 # install the headers
@@ -83,13 +84,13 @@ install (DIRECTORY  ${WORKING_SOURCE_DIR}/inc/
 
 #####################
 #
-#  ags_example_cpp_lib target
+#  ags_blosc_wrapper target
 #  A SHARED LIBRARY target
 #
 #####################
 
 # add includes for current target
-set (WORKING_SOURCE_DIR ${CMAKE_SOURCE_DIR}/ags_example_cpp_lib)
+set (WORKING_SOURCE_DIR ${CMAKE_SOURCE_DIR}/ags_blosc_wrapper)
 include_directories(${WORKING_SOURCE_DIR}/inc)
 
 # add .cpp, .c files, .hpp, .h files
@@ -101,11 +102,12 @@ set (WORKING_SOURCES  ${WORKING_HPP_SOURCES}  ${WORKING_H_SOURCES}  ${WORKING_CP
 set_source_files_properties(${WORKING_C_SOURCES} PROPERTIES LANGUAGE CXX)
 
 # create the target (note: *_LIBRARIES and *_LIBRARY variables come from import process above)
-add_library (ags_example_cpp_lib  SHARED  ${WORKING_SOURCES})  # it is also possible to specify the option SHARED here
-target_link_libraries (ags_example_cpp_lib  ${CBLOSC_LIBRARIES})
+add_library (ags_blosc_wrapper  SHARED  ${WORKING_SOURCES})  # it is also possible to specify the option SHARED here
+target_link_libraries (ags_blosc_wrapper  ${CBLOSC_LIBRARIES})
+set_target_properties (ags_blosc_wrapper  PROPERTIES  LINKER_LANGUAGE  CXX)
 
 # install the library
-install (TARGETS ags_example_cpp_lib
+install (TARGETS ags_blosc_wrapper
          DESTINATION lib
          PERMISSIONS  OWNER_EXECUTE  OWNER_READ  OWNER_WRITE)
 
