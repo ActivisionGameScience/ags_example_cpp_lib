@@ -2,10 +2,6 @@
 #include <blosc.h>
 
 
-using namespace std;
-using namespace activision_game_science;
-
-
 namespace activision_game_science {
 
 
@@ -24,8 +20,7 @@ namespace activision_game_science {
 
 
 
-    size_t
-    BloscWrapper::reserve_needed_to_compress(size_t srcsize) {
+    size_t BloscWrapper::reserve_needed_to_compress(size_t srcsize) {
 
         return srcsize + BLOSC_MAX_OVERHEAD;
     }
