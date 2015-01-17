@@ -10,7 +10,7 @@ library (https://github.com/Blosc/c-blosc).
 
 The purpose is to demonstrate several techniques:
 
-- How to manage external dependencies using ``conda``
+- How to manage external dependencies using ``conda``,
   and build using ``cmake``
 
 - How to build both static and dynamic binaries
@@ -36,13 +36,11 @@ How to build
 ============
 
 The ``conda`` build recipe is located in 
-https://github.com/ActivisionGameScience/ags_conda_recipes.git
-You can use it to build and publish the library as a tarball.
-It can then be installed in the usual ``conda`` way::
+https://github.com/ActivisionGameScience/ags_conda_recipes.git.
+You can use it to build, publish, and install the library
+the ``conda`` way.
 
-    conda install ags_example_cpp_lib
-
-However, you can also build and install this project by hand.
+However, you can also build and install this library by hand.
 Assuming that ``c-blosc`` is installed in the following location::
 
     /some/path/include/blosc.h
