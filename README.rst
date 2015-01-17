@@ -11,16 +11,16 @@ library (https://github.com/Blosc/c-blosc).
 The purpose is to demonstrate several techniques:
 
 - How to manage external dependencies using ``conda``
-  and build against them using ``cmake``
+  and build using ``cmake``
 
-- How to build both static and dynamic binaries using ``cmake``
+- How to build both static and dynamic binaries
 
 - How to expose both a C++ and C API using
-  the *opaque pointers* technique
+  the *opaque pointer* technique
 
 The purpose of the C API (which is a wrapper around
-the C++ code) is to allow other languages, e.g. python,
-to call into this code.
+the C++ code) is to allow other languages to bind
+to this library easily.
 
 In turn, this project serves as a dependency for 
 two other projects:
@@ -37,8 +37,7 @@ How to build
 
 The ``conda`` build recipe is located in 
 https://github.com/ActivisionGameScience/ags_conda_recipes.git
-You can use it to build and publish the library as a tarball
-(see the documentation there).
+You can use it to build and publish the library as a tarball.
 It can then be installed in the usual ``conda`` way::
 
     conda install ags_example_cpp_lib
@@ -49,8 +48,7 @@ Assuming that ``c-blosc`` is installed in the following location::
     /some/path/include/blosc.h
     /some/path/lib/libblosc.so
 
-you can build and install into the same directories with the following
-commands::
+you can build and install with the following commands::
 
     git clone https://github.com/ActivisionGameScience/ags_example_cpp_lib.git
     cd ags_example_cpp_lib
