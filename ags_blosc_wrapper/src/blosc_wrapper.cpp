@@ -9,6 +9,11 @@ namespace activision_game_science {
     BloscWrapper::BloscWrapper() {
 
         blosc_init();
+
+        if (blosc_set_compressor("zlib") == -1) {
+
+            std::cerr << "Blosc reports cannot use zlib.  Falling back to default" << std::endl;
+        }
     }
 
 
