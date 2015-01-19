@@ -1,6 +1,8 @@
 #include <activision_game_science/blosc_wrapper.h>
 #include <blosc.h>
 
+#include <iostream>
+
 
 namespace activision_game_science {
 
