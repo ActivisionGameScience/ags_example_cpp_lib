@@ -23,7 +23,7 @@ the C++ code) is to allow other languages to bind
 to this library easily.
 
 In turn, this project serves as a dependency for 
-two other projects:
+two other projects described in the tutorial:
 
 - https://github.com/ActivisionGameScience/ags_example_py_wrapper.git
   (a python wrapper around this library)
@@ -37,7 +37,7 @@ How to build
 
 The ``conda`` build recipe is located in 
 https://github.com/ActivisionGameScience/ags_conda_recipes.git.
-You can use it to build, publish, and install the library
+You can use it to build, publish, and install 
 the ``conda`` way.
 
 However, you can also build and install this library by hand.

@@ -25,7 +25,7 @@ namespace activision_game_science {
                  void* dst, 
                  size_t dstsize, 
                  int clevel=5, 
-                 bool doshuffle=false, 
+                 bool doshuffle=true, 
                  size_t typesize=4);
 
         size_t
